@@ -16,6 +16,13 @@ app.get("/health", (req, res) => {
     });
 })
 
+app.get("/users", (req, res) => {
+    res.json([
+        { id: 1, name: "Siva" },
+        { id: 2, name: "Arun" }
+    ]);
+}); 
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 })
