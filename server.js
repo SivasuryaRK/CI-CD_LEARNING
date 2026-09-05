@@ -12,10 +12,22 @@ app.get("/", (req, res) => {
 
 app.get("/health", (req, res) => {
     res.json({
-        status: "Healthy"
+        status: "healthy"
     });
 })
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-})
+app.get("/users", (req, res) => {
+    res.json([
+        { id: 1, name: "Siva" },
+        { id: 2, name: "Arun" }
+    ]);
+}); 
+
+if(require.main === module)
+{
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    })
+}
+
+module.exports = app;
